@@ -9,7 +9,7 @@ class CreateBoardComponent extends Component {
         // form 양식에서 사용 될 파라미터 정의
         this.state = {
             title: '',
-            content: '',
+            contets: '',
             writer: 'admin'
         }
         
@@ -24,17 +24,18 @@ class CreateBoardComponent extends Component {
     }
 
     changeContentHandler = (event) => {
-        this.setState({content: event.target.value});
+        this.setState({contets: event.target.value});
     }
 
     createBoard = (event) => {
         event.preventDefault();
         let board = {
             title: this.state.title,
-            content: this.state.content,
+            content: this.state.contets,
         };
         console.log("board => "+ JSON.stringify(board));
         BoardService.createBoard(board).then(res => {
+            console.log(res);
             this.props.history.push('/board');
         });
     }
@@ -60,7 +61,7 @@ class CreateBoardComponent extends Component {
                                     <div className = "form-group">
                                         <label> Contents  </label>
                                         <textarea placeholder="contents" name="contents" className="form-control"
-                                                  value={this.state.contents} onChange={this.changeContentHandler}/>
+                                                  value={this.state.contets} onChange={this.changeContentHandler}/>
                                     </div>
                                     <button className="btn btn-success" onClick={this.createBoard}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
