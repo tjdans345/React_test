@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import ListBoardComponent from "./components/ListBoardComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
+import CreateBoardComponent from "./components/CreateBoardComponent";
 
 function App() {
 
